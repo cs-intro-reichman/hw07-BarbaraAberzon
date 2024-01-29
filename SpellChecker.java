@@ -64,16 +64,13 @@ public class SpellChecker {
 		String save = "";
 			for (int i = 0 ; i < 3000 ; i ++){
 				int lev = levenshtein(word, dictionary[i]);
-				if (lev < currentMin) {
+				if (lev < currentMin && lev < threshold) {
 					currentMin = lev ; 
 					save = dictionary [i];
 				}
-			}
-				if (currentMin < threshold) {
-					return save;
 				}
 
-			return "";
+			return save;
 	}
 
 }
