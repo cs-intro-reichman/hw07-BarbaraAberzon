@@ -60,15 +60,17 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		int currentMin = Integer.MAX_VALUE ;
 		String save = "";
 			for (int i = 0 ; i < 3000 ; i ++){
-				int lev = levenshtein(word, dictionary[i]);
-				if (lev < currentMin && lev < threshold) {
-					currentMin = lev ; 
+				int lev1 = levenshtein(word, dictionary[i]);
+				int lev2 = levenshtein(word, save);
+				if (lev1 < lev2 && lev1 < threshold) { 
 					save = dictionary [i];
 				}
 				}
+			if (save.isEmpty()){
+				save = word ;
+			}
 
 			return save;
 	}
