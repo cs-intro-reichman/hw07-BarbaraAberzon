@@ -64,7 +64,7 @@ public class SpellChecker {
 			for (int i = 0 ; i < 3000 ; i ++){
 				int lev1 = levenshtein(word, dictionary[i]);
 				int lev2 = levenshtein(word, save);
-				if (lev1 < lev2 && lev1 < threshold) { 
+				if (lev1 < lev2 && lev1 <= threshold) { 
 					save = dictionary [i];
 				}
 				}
